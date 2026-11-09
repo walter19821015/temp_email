@@ -102,8 +102,12 @@ const changeLocale = async (lang) => {
     if (localeSwitched) preferredLocale.value = lang;
 }
 
-const version = "";
-const showGithubForCurrentUser = computed(() => false);
+const version = import.meta.env.PACKAGE_VERSION ? `v${import.meta.env.PACKAGE_VERSION}` : "";
+const showGithubForCurrentUser = computed(() => {
+    if (!openSettings.value.showGithub) return false;
+    if (openSettings.value.showGithubForUser) return true;
+    return showAdminPage.value;
+});
 
 const menuOptions = computed(() => [
     {
@@ -360,7 +364,13 @@ onMounted(async () => {
 }
 
 .header-version-button {
-    display: none !important;
+    display: inline-flex;
+    align-items: center;
+}
+
+.header-version-button :deep(.n-button__content) {
+    display: inline-flex;
+    align-items: center;
 }
 
 .mobile-menu-actions {
