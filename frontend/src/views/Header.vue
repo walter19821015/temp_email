@@ -364,13 +364,7 @@ onMounted(async () => {
 }
 
 .header-version-button {
-    display: inline-flex;
-    align-items: center;
-}
-
-.header-version-button :deep(.n-button__content) {
-    display: inline-flex;
-    align-items: center;
+    display: none !important;
 }
 
 .mobile-menu-actions {
