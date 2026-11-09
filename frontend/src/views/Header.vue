@@ -102,12 +102,8 @@ const changeLocale = async (lang) => {
     if (localeSwitched) preferredLocale.value = lang;
 }
 
-const version = import.meta.env.PACKAGE_VERSION ? `v${import.meta.env.PACKAGE_VERSION}` : "";
-const showGithubForCurrentUser = computed(() => {
-    if (!openSettings.value.showGithub) return false;
-    if (openSettings.value.showGithubForUser) return true;
-    return showAdminPage.value;
-});
+const version = "";
+const showGithubForCurrentUser = computed(() => false);
 
 const menuOptions = computed(() => [
     {
